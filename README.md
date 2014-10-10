@@ -104,15 +104,15 @@ _ _ _
 - - -
 
 ####Client Send Message
-Client 发送==sendMsg==。
-等收到 ==sendMsgCb==后，认为消息发送成功。
+Client 发送 `sendMsg`。
+等收到 `sendMsgCb` 后，认为消息发送成功。
 
 - - -
 
 ####Client Receive Message
-当 Client 收到 ==CheckNewMsg==。
-发送 ==requestMsg== 。
-等待接受 ==getNewMsg==。
+当 Client 收到 `CheckNewMsg` 。
+发送 `requestMsg` 。
+等待接受 `getNewMsg` 。
 
 - - -
 
