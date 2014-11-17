@@ -61,6 +61,7 @@ categories: android sinagz
 |sec		|string	|音频返回时间长度，图片返回空字符串|
 
 ######Example
+
 ```
 {
 	"message": "上传成功",
