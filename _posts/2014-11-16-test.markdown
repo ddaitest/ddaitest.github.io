@@ -72,3 +72,15 @@ categories: android sinagz
 	"result": 1
 }
 ```
+
+```
+	{
+	"message": "上传成功",
+	"data": {
+		"uri": "sinagz_project/9d/e1/54574dac897be04a6002_s.png",
+		"url": "http://bjcache.house.sina.com.cn/gongzhang/sinagz_project/9d/e1/54574dac897be04a6002_s.png"
+	},
+	"result": 1
+	}
+```
+
