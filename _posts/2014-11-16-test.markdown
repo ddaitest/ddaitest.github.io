@@ -85,7 +85,7 @@ categories: android sinagz
 }
 ``
 
-```
+{% highlight json %}
 	{
 	"message": "上传成功",
 	"data": {
@@ -94,7 +94,7 @@ categories: android sinagz
 	},
 	"result": 1
 	}
-```
+{% endhighlight %}
 
 
     {
