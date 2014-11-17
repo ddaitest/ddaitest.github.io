@@ -8,17 +8,11 @@ categories: android sinagz
 #Protocol & Dataformat
 
 ##基础
-
 ###aaa
-
 ###aaa
-
 ####aaaa
-
 #####aaaaa
-
 ######aaaaaa
-
 ###请求方式
 使用HTTP POST
 ###签名计算
