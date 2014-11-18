@@ -1,0 +1,175 @@
+---
+layout: post
+title:  "log!"
+date:   2014-11-18 16:11:10
+categories: android sinagz
+---
+
+## Login RESPONSE
+
+	{
+		"result": 1,
+		"data": {
+			"userid": "c1357",
+			"usertype": "1",
+			"ucode": "9kWsG6c+ghAefZZj93o3t3Lt2SozOU8hq6q2i3Zxzd3mzIYGdqq6JySJ6uDwrFmEpXSBl7jUKFuV+RuA8pfvbJcxfNbqimznFSIBPOYY0q06OwBtQn633Tl6kghlPYCj4CnwGKLdH3E\/rFPvtTzjGPXW++vW9lU2HpKLL6EmkpLT8yiAore+Z7bS91Jh+33UAxAPuWhlxvw=",
+			"picurl": "http:\/\/bjcache.house.sina.com.cn\/gongzhang\/Chief\/2b\/04\/df3ecc1d94afddff082d139c6f15_thumb_120x120.jpg",
+			"name": "\u8f66\u5de5\u957f",
+			"tel": "13381136817",
+			"server_time": "1416294082190"
+		},
+		"message": "\u767b\u5f55\u6210\u529f"
+	}
+
+## IM Send
+
+	{
+		"args": [{
+			"user_id": "c1357",
+			"m_address": "78:4B:87:7B:93:F6"
+		}],
+		"name": "login"
+	}
+## IM Send
+
+	{
+			"args": [],
+			"name": "updateUserList"
+	}
+
+## IM Receive
+
+	{
+		"name": "checkUser",
+		"args": [{
+			"flag": 1
+		}]
+	}
+
+## IM Receive
+
+	{
+		"name": "checkOnLine",
+		"args": [{
+			"flag": 0
+		}]
+	}
+
+## IM Send
+
+	{
+		"args": [{
+			"limit": "1000",
+			"start_offset": 1416294082190,
+			"user_id": "c1357"
+		}],
+		"name": "requestMsg"
+	}
+
+## IM Receive
+
+	{
+		"name": "shaohuinb",
+		"args": [{
+			"flag": 0
+		}]
+	}
+
+## IM Receive
+
+	{
+		"name": "getNewMsg",
+		"args": [{
+			"flag": 1,
+			"total": 7,
+			"list": [{
+				"target_id": "c1357",
+				"user_logo": "http://bjcache.house.sina.com.cn/gongzhang/work_att/c5/d9/27a0a8ba9ddd948c20e9a7f66404.png",
+				"user_id": "o574",
+				"msg_type": "1",
+				"voice_length": "",
+				"send_time": 1416294007612,
+				"user_name": "itest3",
+				"msg_content": "1234##",
+				"msg_id": "16205122513807",
+				"chat_id": "546aee778253c1820755cf4d"
+			}, {
+				"target_id": "c1357",
+				"user_logo": "http://bjcache.house.sina.com.cn/gongzhang/work_att/c5/d9/27a0a8ba9ddd948c20e9a7f66404.png",
+				"user_id": "o574",
+				"msg_type": "1",
+				"voice_length": "",
+				"send_time": 1416294011783,
+				"user_name": "itest3",
+				"msg_content": "Qqq",
+				"msg_id": "16209272335975",
+				"chat_id": "546aee7b8253c1820755cf4e"
+			}, {
+				"target_id": "c1357",
+				"user_logo": "http://bjcache.house.sina.com.cn/gongzhang/work_att/c5/d9/27a0a8ba9ddd948c20e9a7f66404.png",
+				"user_id": "o574",
+				"msg_type": "1",
+				"voice_length": "",
+				"send_time": 1416294017941,
+				"user_name": "itest3",
+				"msg_content": "2",
+				"msg_id": "16214905473395",
+				"chat_id": "546aee818253c1820755cf4f"
+			}, {
+				"target_id": "c1357",
+				"user_logo": "http://bjcache.house.sina.com.cn/gongzhang/work_att/c5/d9/27a0a8ba9ddd948c20e9a7f66404.png",
+				"user_id": "o574",
+				"msg_type": "1",
+				"voice_length": "",
+				"send_time": 1416294022471,
+				"user_name": "itest3",
+				"msg_content": "3",
+				"msg_id": "16219972809647",
+				"chat_id": "546aee868253c1820755cf50"
+			}, {
+				"target_id": "c1357",
+				"user_logo": "http://bjcache.house.sina.com.cn/gongzhang/work_att/c5/d9/27a0a8ba9ddd948c20e9a7f66404.png",
+				"user_id": "o574",
+				"msg_type": "1",
+				"voice_length": "",
+				"send_time": 1416294026968,
+				"user_name": "itest3",
+				"msg_content": "4",
+				"msg_id": "16224473157358",
+				"chat_id": "546aee8a8253c1820755cf51"
+			}, {
+				"target_id": "c1357",
+				"user_logo": "http://bjcache.house.sina.com.cn/gongzhang/work_att/c5/d9/27a0a8ba9ddd948c20e9a7f66404.png",
+				"user_id": "o574",
+				"msg_type": "1",
+				"voice_length": "",
+				"send_time": 1416294030592,
+				"user_name": "itest3",
+				"msg_content": "5",
+				"msg_id": "16228102364318",
+				"chat_id": "546aee8e8253c1820755cf52"
+			}, {
+				"target_id": "c1357",
+				"user_logo": "http://bjcache.house.sina.com.cn/gongzhang/work_att/c5/d9/27a0a8ba9ddd948c20e9a7f66404.png",
+				"user_id": "o574",
+				"msg_type": "1",
+				"voice_length": "",
+				"send_time": 1416294034410,
+				"user_name": "itest3",
+				"msg_content": "6",
+				"msg_id": "16231923020736",
+				"chat_id": "546aee928253c1820755cf53"
+			}]
+		}]
+	}
+
+## IM Receive
+
+	{
+		"name": "getNewMsg",
+		"args": [{
+			"flag": 0,
+			"total": 0,
+			"list": []
+		}]
+	}
