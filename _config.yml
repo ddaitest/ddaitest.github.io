@@ -8,10 +8,10 @@ highlighter: pygments
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
 #
-title : DDAI
+title : DAI
 tagline: ddai_android
 author :
-  name : Dai Home
+  name : ddai
   email : ddai_android@126.com
   github : ddaitest
   twitter : ddaitest
