@@ -9,7 +9,7 @@ highlighter: pygments
 # so be sure to set them if your theme uses them.
 #
 title : DAI
-tagline: ddai_android
+tagline: false
 author :
   name : ddai
   email : ddai_android@126.com
