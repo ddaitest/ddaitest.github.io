@@ -43,7 +43,7 @@ tags: [DD]
 |name			|string		|名称|
 |devicetoken	|	string	|	设备token|
 
-####friends：
+####friend：
 
 |参数名称	|数据类型	|说明|
 |----|-----|----|----|
