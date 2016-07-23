@@ -21,8 +21,9 @@ tags: [DD]
 
 ###Response
 
+
 |参数名称		|数据类型	|说明|
-|-|-|-|
+|----|-----|----|----|
 |result			|int		|	执行结果：1成功 0失败|
 |data			|object		|返回的数据主体|
 |message		|	string	|	result为0时，返回错误信息|
@@ -30,13 +31,13 @@ tags: [DD]
 ####data：
 
 |参数名称	|数据类型	|说明|
-|-|-|-|
+|----|-----|----|----|
 |userinfo		|object		|用户信息(当前用户)|
 |friends		|list|	联系人列表|
 ####userinfo：
 
 |参数名称	|数据类型	|说明|
-|-|-|-|
+|----|-----|----|----|
 |userid			|string		|客户userid|
 |picurl			|string		|头像地址|
 |name			|string		|名称|
@@ -45,7 +46,7 @@ tags: [DD]
 ####friends：
 
 |参数名称	|数据类型	|说明|
-|-|-|-|
+|----|-----|----|----|
 |userid			|string		|客户userid|
 |picurl			|string		|头像地址|
 |cus_name		|string		|客户名称|
@@ -53,6 +54,7 @@ tags: [DD]
 |house_addr		|string		|楼盘地址|
 |is_finished	|int		|	1进行中的客户2已完成的客户|
 |devicetoken	|string	|	设备token|
+
 
 ######Example
 
