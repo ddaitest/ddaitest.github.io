@@ -11,7 +11,7 @@ tags: [DD]
 客户列表
 客户留言里取客户列表
 
-###Request
+###request
 
 |参数名称|数据类型	|是否必填项	|说明|
 |----|-----|----|----|
@@ -19,7 +19,7 @@ tags: [DD]
 |cus_status	|int	|否	|0 默认值，取全部1 取正在进行中的客户2 取已完成的客户|
 
 
-###Response
+###response
 
 
 |参数名称		|数据类型	|说明|
@@ -56,7 +56,7 @@ tags: [DD]
 |devicetoken	|string	|	设备token|
 
 
-######Example
+###result
 
 ```
 {
