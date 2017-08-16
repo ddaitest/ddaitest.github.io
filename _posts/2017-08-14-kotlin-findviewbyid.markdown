@@ -5,51 +5,48 @@ date:   2017-08-14 10:37:55 +0800
 
 ---
 
-# Kotlin 中的 findViewById
-
 ## In Java
 本文会记录下在Kotlin 中逐步优化绑定view 的过程，以熟悉Kotlin中的一些特性。
 
 绑定view 在Android开发中，经常要用到。Java中这样实现：
 
-``` Java
-public class MainActivity extends Activity {
 
-    private TextView tvHello;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        ...
-        tvHello = (TextView) findViewById(R.id.hello);
+    {% highlight Java %}
+    public class MainActivity extends Activity {
+    
+        private TextView tvHello;
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            ...
+            tvHello = (TextView) findViewById(R.id.hello);
+        }
     }
-}
-```
+    {% endhighlight %}
+
 
 对应的 layout.xml ：
 
-``` 
-{% highlight Java %}
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    {% highlight xml %}
 
-    <TextView
-        android:id="@+id/hello"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello Kotlin!"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <?xml version="1.0" encoding="utf-8"?>
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+    
+        <TextView
+            android:id="@+id/hello"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hello Kotlin!"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    
+    </android.support.constraint.ConstraintLayout>
 
-</android.support.constraint.ConstraintLayout>
-{% endhighlight %}
-
-
-```
-
+    {% endhighlight %}
 
 findViewById 是很枯燥的，即使有些  [butterknife](http://jakewharton.github.io/butterknife/) 可以简化工作，但是发现在kotlin 中可以完美的解决这个问题。
 
@@ -58,16 +55,17 @@ findViewById 是很枯燥的，即使有些  [butterknife](http://jakewharton.gi
 
 接下来将逐步的进行优化，首先先看以Java 的习惯，我们会怎么写:
 
-``` Java
-class MainActivity : Activity() {
-    private var tvHello: TextView? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        ...
-        tvHello = findViewById(R.id.hello) as TextView
+    {% highlight Java %}
+    class MainActivity : Activity() {
+        private var tvHello: TextView? = null
+    
+        override fun onCreate(savedInstanceState: Bundle?) {
+            ...
+            tvHello = findViewById(R.id.hello) as TextView
+        }
     }
-}
-```
+    {% endhighlight %}
+
 
 看起来和Java差不多。那我们开始第一步：
 
@@ -75,16 +73,16 @@ class MainActivity : Activity() {
 
 我们定义的 `tvHello` 默认是 null, 如果我们希望它可以延迟初始化，可以加上 `lateinit`
 
-``` Java
-class MainActivity : Activity() {
-    private lateinit var tvHello: TextView? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        ...
-        tvHello = findViewById(R.id.hello) as TextView
+    {% highlight Java %}
+    class MainActivity : Activity() {
+        private lateinit var tvHello: TextView? = null
+    
+        override fun onCreate(savedInstanceState: Bundle?) {
+            ...
+            tvHello = findViewById(R.id.hello) as TextView
+        }
     }
-}
-```
+    {% endhighlight %}
 
 ### Extension
 
@@ -92,17 +90,17 @@ class MainActivity : Activity() {
 
 你可以新建一个Kotlin文件，用来放 bind 方法:
 
-``` Java
 
+{% highlight Java %}
 fun <T : View> Activity.bind(@IdRes res : Int) : T {
     @Suppress("UNCHECKED_CAST")
     return findViewById(res) as T
 }
-```
+{% endhighlight %}
 
 再看 Activity 中：
 
-``` Java
+{% highlight Java %}
 class MainActivity : Activity() {
     private lateinit var tvHello: TextView
 
@@ -111,7 +109,7 @@ class MainActivity : Activity() {
         tvHello = bind(R.id.hello)
     }
 }
-```
+{% endhighlight %}
 
 [extension](https://kotlinlang.org/docs/reference/extensions.html) 这个功能，可以在其他文件中给一个class 扩展方法和属性。
 
@@ -121,21 +119,21 @@ class MainActivity : Activity() {
 
 所以来使用 `Lazy<T>` ，很简单。修改后
 
-``` Java
+{% highlight Java %}
 fun <T : View> Activity.bind(@IdRes res : Int) : Lazy<T> {
     @Suppress("UNCHECKED_CAST")
     return lazy { findViewById(res) as T }
 }
-```
+{% endhighlight %}
 
 在Activity 中只要这样写
 
-``` Java
+{% highlight Java %}
 class MainActivity : Activity() {
     private val tvHello2 :TextView by bind(R.id.hello)
 }
 
-```
+{% endhighlight %}
 
 
 ## 终极 Kotlin Android Extensions
@@ -146,7 +144,7 @@ class MainActivity : Activity() {
 
 来看疗效：
 
-``` Java
+{% highlight Java %}
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : Activity() {
@@ -156,7 +154,7 @@ class MainActivity : Activity() {
         hello.text = "AWESOME!"
     }
 }
-```
+{% endhighlight %}
 
 只要在 import 部分加上
 
