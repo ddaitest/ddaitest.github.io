@@ -26,7 +26,8 @@ public class MainActivity extends Activity {
 
 对应的 layout.xml ：
 
-``` xml
+``` 
+{% highlight Java %}
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -44,7 +45,7 @@ public class MainActivity extends Activity {
         app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
-
+{% endhighlight %}
 
 
 ```
