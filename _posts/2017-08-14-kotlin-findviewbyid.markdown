@@ -11,42 +11,40 @@ date:   2017-08-14 10:37:55 +0800
 绑定view 在Android开发中，经常要用到。Java中这样实现：
 
 
-    {% highlight Java %}
-    public class MainActivity extends Activity {
-    
-        private TextView tvHello;
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            ...
-            tvHello = (TextView) findViewById(R.id.hello);
-        }
+{% highlight Java %}
+public class MainActivity extends Activity {
+
+    private TextView tvHello;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        ...
+        tvHello = (TextView) findViewById(R.id.hello);
     }
-    {% endhighlight %}
+}
+{% endhighlight %}
 
 
 对应的 layout.xml ：
 
-    {% highlight xml %}
+{% highlight xml %}
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
-    
-        <TextView
-            android:id="@+id/hello"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hello Kotlin!"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    
-    </android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/hello"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello Kotlin!"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    {% endhighlight %}
+</android.support.constraint.ConstraintLayout>
+{% endhighlight %}
 
 findViewById 是很枯燥的，即使有些  [butterknife](http://jakewharton.github.io/butterknife/) 可以简化工作，但是发现在kotlin 中可以完美的解决这个问题。
 
@@ -55,16 +53,16 @@ findViewById 是很枯燥的，即使有些  [butterknife](http://jakewharton.gi
 
 接下来将逐步的进行优化，首先先看以Java 的习惯，我们会怎么写:
 
-    {% highlight Java %}
-    class MainActivity : Activity() {
-        private var tvHello: TextView? = null
-    
-        override fun onCreate(savedInstanceState: Bundle?) {
-            ...
-            tvHello = findViewById(R.id.hello) as TextView
-        }
+{% highlight Java %}
+class MainActivity : Activity() {
+    private var tvHello: TextView? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        ...
+        tvHello = findViewById(R.id.hello) as TextView
     }
-    {% endhighlight %}
+}
+{% endhighlight %}
 
 
 看起来和Java差不多。那我们开始第一步：
@@ -73,16 +71,16 @@ findViewById 是很枯燥的，即使有些  [butterknife](http://jakewharton.gi
 
 我们定义的 `tvHello` 默认是 null, 如果我们希望它可以延迟初始化，可以加上 `lateinit`
 
-    {% highlight Java %}
-    class MainActivity : Activity() {
-        private lateinit var tvHello: TextView? = null
-    
-        override fun onCreate(savedInstanceState: Bundle?) {
-            ...
-            tvHello = findViewById(R.id.hello) as TextView
-        }
+{% highlight Java %}
+class MainActivity : Activity() {
+    private lateinit var tvHello: TextView? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        ...
+        tvHello = findViewById(R.id.hello) as TextView
     }
-    {% endhighlight %}
+}
+{% endhighlight %}
 
 ### Extension
 
@@ -155,6 +153,7 @@ class MainActivity : Activity() {
     }
 }
 {% endhighlight %}
+
 
 只要在 import 部分加上
 
